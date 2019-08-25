@@ -2,7 +2,9 @@
   "name": "piggyback-portal",
   "version": "0.1.0",
   "private": true,
+  "dockeruser": "dojha",
   "dependencies": {
+    "docker-build-run-push": "^3.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"
@@ -11,7 +13,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker-build": "docker build -t docker-user/piggyback-portal .",
+    "docker-login": "docker login -u=dojha -p=Password@2019",
+    "docker-push": "docker push dojha/piggyback-portal"
   },
   "eslintConfig": {
     "extends": "react-app"

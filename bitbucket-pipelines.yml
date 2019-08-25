@@ -11,5 +11,6 @@ pipelines:
         script: 
           - npm install
           - npm test
-          - npm run build 
-          #jib:build -Djib.to.auth.username=$DOCKER_USERNAME -Djib.to.auth.password=$DOCKER_PASSWORD
+          - npm run build
+          - npm run docker-build
+          - npm run docker-push
