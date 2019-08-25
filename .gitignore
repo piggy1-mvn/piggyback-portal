@@ -18,7 +18,7 @@
 .env.test.local
 .env.production.local
 .vscode
-.gradle
+.vs
 
 npm-debug.log*
 yarn-debug.log*
