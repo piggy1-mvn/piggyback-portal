@@ -12,5 +12,8 @@ pipelines:
           - npm install
           - npm test
           - npm run build
+		  - npm config set piggyback-portal:username $DOCKER_USERNAME
+		  - npm config set piggyback-portal:password $DOCKER_PASSWORD
+		  - npm run docker-login
           - npm run docker-build
           - npm run docker-push

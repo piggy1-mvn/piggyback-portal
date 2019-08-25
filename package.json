@@ -14,9 +14,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "docker-build": "docker build -t docker-user/piggyback-portal .",
-    "docker-login": "docker login -u=dojha -p=Password@2019",
-    "docker-push": "docker push dojha/piggyback-portal"
+    "docker-build": "docker build -t piggy1/portal .",
+    "docker-login": "docker login -u=username -p=password",
+    "docker-push": "docker push piggy1/portal"
+  },
+  "config": {
+    "username": "placeholder",
+    "password": "placeholder"
   },
   "eslintConfig": {
     "extends": "react-app"
