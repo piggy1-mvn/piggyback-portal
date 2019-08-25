@@ -1,0 +1,15 @@
+# To create a production ready build for react js web application and also 
+# create corresponding docker image in Dockerhub
+
+image: node:10.15.3
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - node
+        script: 
+          - npm install
+          - npm test
+          - npm run build 
+          #jib:build -Djib.to.auth.username=$DOCKER_USERNAME -Djib.to.auth.password=$DOCKER_PASSWORD
