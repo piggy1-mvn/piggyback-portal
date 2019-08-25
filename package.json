@@ -15,12 +15,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "docker-build": "docker build -t piggy1/portal .",
-    "docker-login": "docker login -u=username -p=password",
+    "docker-login": "docker login",
     "docker-push": "docker push piggy1/portal"
-  },
-  "config": {
-    "username": "placeholder",
-    "password": "placeholder"
   },
   "eslintConfig": {
     "extends": "react-app"
