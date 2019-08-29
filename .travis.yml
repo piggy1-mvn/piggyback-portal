@@ -1,0 +1,19 @@
+language:
+  node_js
+  
+sudo:
+  false
+  
+cache:
+  directories:
+    - $HOME/.m2
+
+services:
+  - docker
+
+script:
+ - npm test
+ - npm run build
+ - docker build -t piggy1/portal .
+ - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+ - docker push piggy1/portal
