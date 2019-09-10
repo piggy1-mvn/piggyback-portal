@@ -10,7 +10,7 @@ const LoginPage = props => {
     id: 0,
     first_name: "",
     last_name: "",
-    user_email: "",
+    email: "",
     user_password: "",
     mobile_number: "",
     device_id: "",
@@ -34,7 +34,7 @@ const LoginPage = props => {
   function formIsValid() {
     const _errors = {};
 
-    if (!user.user_email) _errors.user_email = "Email is required";
+    if (!user.email) _errors.email = "Email is required";
     if (!user.user_password) _errors.user_password = "Password is required";
 
     setErrors(_errors);

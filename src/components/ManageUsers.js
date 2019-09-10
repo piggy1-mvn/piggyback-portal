@@ -10,7 +10,7 @@ const ManageUsers = props => {
     id: 0,
     first_name: "",
     last_name: "",
-    user_email: "",
+    email: "",
     user_password: "",
     mobile_number: "",
     device_id: "",
@@ -36,7 +36,7 @@ const ManageUsers = props => {
 
     if (!user.first_name) _errors.first_name = "First Name is required";
     if (!user.last_name) _errors.last_name = "Last Name is required";
-    if (!user.user_email) _errors.user_email = "Email is required";
+    if (!user.email) _errors.email = "Email is required";
     if (!user.user_password) _errors.user_password = "Password is required";
     if (!user.mobile_number)
       _errors.mobile_number = "Mobile number is required";

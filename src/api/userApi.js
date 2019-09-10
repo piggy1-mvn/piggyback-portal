@@ -37,7 +37,7 @@ export function loginUser(user) {
       return response.json().then(_user => {
         if (
           !(
-            user.user_email === _user.user_email &&
+            user.email === _user.email &&
             user.user_password === _user.user_password
           )
         )

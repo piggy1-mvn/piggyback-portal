@@ -22,12 +22,12 @@ function UserForm(props) {
         error={props.errors.last_name}
       />
       <TextInput
-        id="user_email"
+        id="email"
         label="Email"
         onChange={props.onChange}
-        name="user_email"
-        value={props.user.user_email}
-        error={props.errors.user_email}
+        name="email"
+        value={props.user.email}
+        error={props.errors.email}
       />
       <TextInput
         id="user_password"

@@ -20,7 +20,7 @@ function UserList(props) {
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
                 <td>
-                  <Link to={"/user/" + user.id}>{user.user_email}</Link>
+                  <Link to={"/user/" + user.id}>{user.email}</Link>
                 </td>
               </tr>
             );
@@ -35,7 +35,7 @@ UserList.propTypes = {
     PropTypes.shape({
       first_name: PropTypes.string.isRequired,
       last_name: PropTypes.string.isRequired,
-      user_email: PropTypes.string.isRequired
+      email: PropTypes.string.isRequired
     })
   ).isRequired
 };

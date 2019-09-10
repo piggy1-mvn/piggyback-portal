@@ -10,9 +10,9 @@ function LoginForm(props) {
         id="username"
         label="Email"
         onChange={props.onChange}
-        name="user_email"
-        value={props.user.user_email}
-        error={props.errors.user_email}
+        name="email"
+        value={props.user.email}
+        error={props.errors.email}
       />
       <PasswordInput
         id="password"
