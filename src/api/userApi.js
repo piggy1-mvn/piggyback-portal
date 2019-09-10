@@ -1,8 +1,8 @@
 import { handleResponse, handleError } from "./apiUtils";
-//TODO: Update to pull from config
-//const baseUrl = "process.env.REACT_APP_API_URL" + "/authors/";
-const baseUrlHateOas = "http://localhost:8083/users/";
-const baseUrl = "http://localhost:8083/user/";
+import * as config from "../config/config";
+
+const baseUrlHateOas = config.baseUrlHateOas;
+const baseUrl = config.baseUrl;
 
 export function getUsers() {
   return fetch(baseUrlHateOas)

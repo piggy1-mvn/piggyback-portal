@@ -17,6 +17,11 @@ const LoginPage = props => {
     user_role: ""
   });
 
+  const loginObj = {
+    email: "",
+    user_password: ""
+  };
+
   useEffect(() => {
     const user_id = props.match.params.user_id;
     if (user_id) {
@@ -45,11 +50,6 @@ const LoginPage = props => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!formIsValid()) return;
-
-    const loginObj = {
-      email: "",
-      user_password: ""
-    };
 
     loginObj.email = user.email;
     loginObj.user_password = user.user_password;
