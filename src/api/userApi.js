@@ -41,10 +41,3 @@ export function loginUser(user) {
     return response;
   });
 }
-
-/*
-export function deleteUser(userId) {
-  return fetch(baseUrl + userId, { method: "DELETE" })
-    .then(handleResponse)
-    .catch(handleError);
-}*/
