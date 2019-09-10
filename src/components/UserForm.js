@@ -1,6 +1,7 @@
 import React from "react";
 import TextInput from "./common/TextInput";
 import PropTypes from "prop-types";
+import PasswordInput from "./common/PasswordInput";
 
 function UserForm(props) {
   return (
@@ -29,7 +30,7 @@ function UserForm(props) {
         value={props.user.email}
         error={props.errors.email}
       />
-      <TextInput
+      <PasswordInput
         id="user_password"
         label="Password"
         onChange={props.onChange}

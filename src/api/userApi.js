@@ -36,14 +36,10 @@ export function loginUser(user) {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
-  })
-    .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok.");
-      return response.json().then(_user => {
-        return _user;
-      });
-    })
-    .catch(handleError);
+  }).then(response => {
+    if (!response.ok) throw new Error("Network response was not ok.");
+    return response;
+  });
 }
 
 /*
