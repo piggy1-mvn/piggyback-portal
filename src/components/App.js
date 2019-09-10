@@ -8,11 +8,12 @@ import FileNotFound from "./NotFoundPage";
 import ManageUsers from "./ManageUsers";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import * as config from "../config/config";
 
 function App() {
   return (
     <div className="container-fluid">
-      <ToastContainer autoClose={3000} hideProgressBar />
+      <ToastContainer autoClose={config.toastDuration} hideProgressBar />
       <Header />
       <Switch>
         <Route path="/" exact component={Login} />
