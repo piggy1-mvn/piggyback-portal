@@ -46,7 +46,11 @@ const LoginPage = props => {
     event.preventDefault();
     if (!formIsValid()) return;
 
-    var loginObj;
+    const loginObj = {
+      email: "",
+      user_password: ""
+    };
+
     loginObj.email = user.email;
     loginObj.user_password = user.user_password;
 
