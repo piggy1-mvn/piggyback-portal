@@ -45,8 +45,13 @@ const LoginPage = props => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!formIsValid()) return;
+
+    var loginObj;
+    loginObj.email = user.email;
+    loginObj.user_password = user.user_password;
+
     userApi
-      .loginUser(user)
+      .loginUser(loginObj)
       .then(() => {
         props.history.push("/users");
         toast.success("Welcome to Piggyback Portal");

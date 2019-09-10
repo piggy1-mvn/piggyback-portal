@@ -1,16 +1,17 @@
 import { handleResponse, handleError } from "./apiUtils";
 //TODO: Update to pull from config
 //const baseUrl = "process.env.REACT_APP_API_URL" + "/authors/";
-const baseUrl = "http://localhost:8083/users/";
+const baseUrlHateOas = "http://localhost:8083/users/";
+const baseUrl = "http://localhost:8083/user/";
 
 export function getUsers() {
-  return fetch(baseUrl)
+  return fetch(baseUrlHateOas)
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function getUserById(user_id) {
-  return fetch(baseUrl + user_id)
+  return fetch(baseUrlHateOas + user_id)
     .then(response => {
       if (!response.ok) throw new Error("Network response was not ok.");
       return response.json().then(user => {
@@ -21,7 +22,7 @@ export function getUserById(user_id) {
 }
 
 export function saveUser(user) {
-  return fetch(baseUrl + (user.id || ""), {
+  return fetch(baseUrlHateOas + (user.id || ""), {
     method: user.id ? "PUT" : "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
@@ -31,17 +32,14 @@ export function saveUser(user) {
 }
 
 export function loginUser(user) {
-  return fetch(baseUrl + user.id)
+  return fetch(baseUrl + "login/", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(user)
+  })
     .then(response => {
       if (!response.ok) throw new Error("Network response was not ok.");
       return response.json().then(_user => {
-        if (
-          !(
-            user.email === _user.email &&
-            user.user_password === _user.user_password
-          )
-        )
-          throw new Error("Invalid credentials");
         return _user;
       });
     })
