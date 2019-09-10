@@ -1,13 +1,13 @@
 import React from "react";
 import TextInput from "./common/TextInput";
 import PropTypes from "prop-types";
-import PasswordInput from "./common/PasswordInput";
 
 function UserForm(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <TextInput
         id="first_name"
+        type="text"
         label="First Name"
         onChange={props.onChange}
         name="first_name"
@@ -16,6 +16,7 @@ function UserForm(props) {
       />
       <TextInput
         id="last_name"
+        type="text"
         label="Last Name"
         onChange={props.onChange}
         name="last_name"
@@ -24,14 +25,16 @@ function UserForm(props) {
       />
       <TextInput
         id="email"
+        type="text"
         label="Email"
         onChange={props.onChange}
         name="email"
         value={props.user.email}
         error={props.errors.email}
       />
-      <PasswordInput
+      <TextInput
         id="user_password"
+        type="password"
         label="Password"
         onChange={props.onChange}
         name="user_password"
@@ -40,6 +43,7 @@ function UserForm(props) {
       />
       <TextInput
         id="mobile_number"
+        type="text"
         label="Mobile Number"
         onChange={props.onChange}
         name="mobile_number"
@@ -48,6 +52,7 @@ function UserForm(props) {
       />
       <TextInput
         id="device_id"
+        type="text"
         label="Device ID"
         onChange={props.onChange}
         name="device_id"
@@ -56,6 +61,7 @@ function UserForm(props) {
       />
       <TextInput
         id="user_role"
+        type="text"
         label="Role"
         onChange={props.onChange}
         name="user_role"

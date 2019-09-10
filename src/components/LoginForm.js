@@ -1,6 +1,5 @@
 import React from "react";
 import TextInput from "./common/TextInput";
-import PasswordInput from "./common/PasswordInput";
 import PropTypes from "prop-types";
 
 function LoginForm(props) {
@@ -8,14 +7,16 @@ function LoginForm(props) {
     <form onSubmit={props.onSubmit}>
       <TextInput
         id="username"
+        type="text"
         label="Email"
         onChange={props.onChange}
         name="email"
         value={props.user.email}
         error={props.errors.email}
       />
-      <PasswordInput
+      <TextInput
         id="password"
+        type="password"
         label="Password"
         onChange={props.onChange}
         name="user_password"

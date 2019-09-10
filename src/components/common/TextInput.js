@@ -13,7 +13,7 @@ function TextInput(props) {
       <div className="field">
         <input
           id={props.id}
-          type="text"
+          type={props.type}
           onChange={props.onChange}
           name={props.name}
           className="form-control"
@@ -29,6 +29,7 @@ function TextInput(props) {
 
 TextInput.propTypes = {
   id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
