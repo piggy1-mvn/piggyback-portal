@@ -33,15 +33,6 @@ function UserForm(props) {
         error={props.errors.email}
       />
       <TextInput
-        id="user_password"
-        type="password"
-        label="Password"
-        onChange={props.onChange}
-        name="user_password"
-        value={props.user.user_password}
-        error={props.errors.user_password}
-      />
-      <TextInput
         id="mobile_number"
         type="text"
         label="Mobile Number"
