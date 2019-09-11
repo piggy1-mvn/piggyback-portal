@@ -15,15 +15,17 @@ function App() {
     <div className="container-fluid">
       <ToastContainer autoClose={config.toastDuration} hideProgressBar />
       <Header />
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Redirect path="/home" to="/" />
-        <Route path="/users" component={Users} />
-        <Route path="/user/:user_id" component={ManageUsers} />
-        <Route path="/user" component={ManageUsers} />
-        <Route path="/about" component={About} />
-        <Route component={FileNotFound} />
-      </Switch>
+      <div className="body">
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Redirect path="/home" to="/" />
+          <Route path="/users" component={Users} />
+          <Route path="/user/:user_id" component={ManageUsers} />
+          <Route path="/user" component={ManageUsers} />
+          <Route path="/about" component={About} />
+          <Route component={FileNotFound} />
+        </Switch>
+      </div>
     </div>
   );
 }
