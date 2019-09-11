@@ -11,5 +11,9 @@ services:
 script:
   - yarn build
   - docker build -t piggy1/portal .
-  - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
-  - docker push piggy1/portal
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master

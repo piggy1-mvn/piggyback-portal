@@ -32,7 +32,7 @@ export function saveUser(user) {
 }
 
 export function loginUser(user) {
-  return fetch(baseUrl + "login/", {
+  return fetch(baseUrl + "login", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(user)
