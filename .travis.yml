@@ -1,25 +1,15 @@
-language:
-  node_js
+language: node_js
 
 node_js:
- - 10
-  
-sudo:
-  false
-  
-cache:
-  directories:
-    - $HOME/.m2
+  - 10
 
-install:
-  skip
+sudo: false
 
 services:
   - docker
 
 script:
- - npm install
- - npm run build
- - docker build -t piggy1/portal .
- - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
- - docker push piggy1/portal
+  - yarn build
+  - docker build -t piggy1/portal .
+  - docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+  - docker push piggy1/portal

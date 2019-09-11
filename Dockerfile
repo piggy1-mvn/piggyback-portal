@@ -1,16 +1,13 @@
-FROM node:10
+FROM node
 
-# Create app directory inside src, which will be the working directory
 WORKDIR /usr/src
 
 COPY package*.json ./
 
-# RUN npm install
-# RUN npm ci --only=production
+RUN npm install -g serve
 
-# Bundle app source
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5000
 
-CMD [ "npm", "start" ]
+CMD [ "serve", "-s", "build" ]
