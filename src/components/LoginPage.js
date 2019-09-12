@@ -44,7 +44,7 @@ const LoginPage = props => {
       .loginUser(user.email, user.user_password)
       .then(() => {
         props.history.push("/users");
-        toast.success("Welcome to Piggyback Portal");
+        toast.success("Welcome to Piggyback Partner Portal");
       })
       .catch(handleError);
   }

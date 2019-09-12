@@ -12,12 +12,7 @@ export function getUsers() {
 
 export function getUserById(user_id) {
   return fetch(baseUrlHateOas + user_id)
-    .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok.");
-      return response.json().then(user => {
-        return user;
-      });
-    })
+    .then(handleResponse)
     .catch(handleError);
 }
 
@@ -32,30 +27,32 @@ export function saveUser(user) {
 }
 
 export function loginUser(email, user_password) {
+  if (email === "" || user_password === "") return;
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, user_password })
   };
 
-  debugger;
-  return (
-    fetch(baseUrl + "login", requestOptions)
-      /* 
-      THIS IS A BUG
-      NEED TO UN-COMMENT ONCE USER API RETURNS USER_ROLE IN LOGIN RESPONSE 
-      .then(handleResponse)
-      */
-      .then(user => {
-        if (user) {
-          user.authdata = window.btoa(email + ":" + user_password);
-          localStorage.setItem("user", JSON.stringify(user));
-        }
-        return user;
-      })
-  );
+  return fetch(baseUrl + "login", requestOptions)
+    .then(handleResponse)
+    .then(user => {
+      user.authdata = window.btoa(email + ":" + user_password);
+      localStorage.setItem("user", JSON.stringify(user));
+      return user;
+    })
+    .catch(handleError);
 }
 
+//move to helper
+export function isAuthenticated() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    return true;
+  } else return false;
+}
+
+//move to helper
 export function logout() {
   localStorage.removeItem("user");
 }
