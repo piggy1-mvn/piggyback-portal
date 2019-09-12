@@ -1,8 +1,11 @@
 import { toast } from "react-toastify";
 
 export async function handleResponse(response) {
-  if (response.ok) return response.json();
-  if (response.status === 400) {
+  if (response.ok) {
+    debugger;
+    return response.json();
+  }
+  if (response.status === 400 || response.status === 401) {
     const error = await response.text();
     throw new Error(error);
   }
