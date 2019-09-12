@@ -69,15 +69,19 @@ const LoginPage = props => {
 
   return (
     <div className="jumbotron">
-      <>
-        <h1>Piggyback Partners</h1>
-        <LoginForm
-          errors={errors}
-          user={user}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      </>
+      <div className="container">
+        <div className="col-sm-8 col-sm-offset-2">
+          <>
+            <h1>Piggyback Partners</h1>
+            <LoginForm
+              errors={errors}
+              user={user}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          </>
+        </div>
+      </div>
     </div>
   );
 };
