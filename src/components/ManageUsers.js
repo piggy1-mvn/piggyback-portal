@@ -11,7 +11,6 @@ const ManageUsers = props => {
     first_name: "",
     last_name: "",
     email: "",
-    user_password: "",
     mobile_number: "",
     device_id: "",
     user_role: ""
