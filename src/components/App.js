@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./common/Header";
+import { PrivateRoute } from "./PrivateRoute";
 import Login from "./LoginPage";
 import About from "./AboutPage";
 import Users from "./UsersPage";
@@ -19,10 +20,10 @@ function App() {
         <Switch>
           <Route path="/" exact component={Login} />
           <Redirect path="/home" to="/" />
-          <Route path="/users" component={Users} />
-          <Route path="/user/:user_id" component={ManageUsers} />
-          <Route path="/user" component={ManageUsers} />
-          <Route path="/about" component={About} />
+          <PrivateRoute path="/users" component={Users} />
+          <PrivateRoute path="/user/:user_id" component={ManageUsers} />
+          <PrivateRoute path="/user" component={ManageUsers} />
+          <PrivateRoute path="/about" component={About} />
           <Route component={FileNotFound} />
         </Switch>
       </div>
