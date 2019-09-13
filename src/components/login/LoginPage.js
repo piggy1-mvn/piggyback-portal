@@ -43,7 +43,7 @@ const LoginPage = props => {
     userApi
       .loginUser(user.email, user.user_password)
       .then(() => {
-        props.history.push("/users");
+        props.history.push("/home");
         toast.success("Welcome to Piggyback Partner Portal");
       })
       .catch(handleError);
