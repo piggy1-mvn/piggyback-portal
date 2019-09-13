@@ -3,3 +3,8 @@
 [![codecov](https://codecov.io/gh/piggy1-mvn/piggyback-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/piggy1-mvn/piggyback-portal)
 
 # piggyback-portal
+
+To get started locally:
+
+1. npm install
+2. npm start

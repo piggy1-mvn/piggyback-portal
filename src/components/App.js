@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./common/Header";
-import { PrivateRoute } from "./PrivateRoute";
-import Login from "./LoginPage";
-import About from "./AboutPage";
-import Users from "./UsersPage";
+import { PrivateRoute } from "./common/PrivateRoute";
+import Login from "./login/LoginPage";
+import About from "./about/AboutPage";
+import Users from "./users/UsersPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import FileNotFound from "./NotFoundPage";
-import ManageUsers from "./ManageUsers";
+import ManageUsers from "./users/ManageUsersPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as config from "../config/config";

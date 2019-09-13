@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserForm from "./UserForm";
-import * as userApi from "../api/userApi";
+import UserForm from "./ManageUserForm";
+import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
 const ManageUsers = props => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
-import * as userApi from "../api/userApi";
+import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
 const LoginPage = props => {

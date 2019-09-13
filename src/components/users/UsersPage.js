@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getUsers } from "../api/userApi";
-import UserList from "./userList";
+import { getUsers } from "../../api/userApi";
+import UserList from "./UserList";
 import { Link } from "react-router-dom";
 
 function UsersPage() {
