@@ -1,5 +1,4 @@
 import React from "react";
-//import Header from "./common/Header";
 import { PrivateRoute } from "./common/PrivateRoute";
 import Login from "./login/LoginPage";
 import About from "./about/AboutPage";
