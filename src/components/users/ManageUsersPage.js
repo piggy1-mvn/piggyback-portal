@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import UserForm from "./UserForm";
-import * as userApi from "../api/userApi";
+import UserForm from "./ManageUserForm";
+import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
 const ManageUsers = props => {
@@ -11,7 +11,6 @@ const ManageUsers = props => {
     first_name: "",
     last_name: "",
     email: "",
-    user_password: "",
     mobile_number: "",
     device_id: "",
     user_role: ""

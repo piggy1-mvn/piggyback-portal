@@ -1,26 +1,15 @@
 import React, { useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
-import * as userApi from "../api/userApi";
+import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
 const LoginPage = props => {
   const [errors, setErrors] = useState({});
 
   const [user, setUser] = useState({
-    id: 0,
-    first_name: "",
-    last_name: "",
-    email: "",
-    user_password: "",
-    mobile_number: "",
-    device_id: "",
-    user_role: ""
-  });
-
-  const loginObj = {
     email: "",
     user_password: ""
-  };
+  });
 
   useEffect(() => {
     const user_id = props.match.params.user_id;
@@ -51,14 +40,11 @@ const LoginPage = props => {
     event.preventDefault();
     if (!formIsValid()) return;
 
-    loginObj.email = user.email;
-    loginObj.user_password = user.user_password;
-
     userApi
-      .loginUser(loginObj)
+      .loginUser(user.email, user.user_password)
       .then(() => {
-        props.history.push("/users");
-        toast.success("Welcome to Piggyback Portal");
+        props.history.push("/home");
+        toast.success("Welcome to Piggyback Partner Portal");
       })
       .catch(handleError);
   }
@@ -69,15 +55,19 @@ const LoginPage = props => {
 
   return (
     <div className="jumbotron">
-      <>
-        <h1>Piggyback Partners</h1>
-        <LoginForm
-          errors={errors}
-          user={user}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
-      </>
+      <div className="container">
+        <div className="col-sm-8 col-sm-offset-2">
+          <>
+            <h1>Piggyback Partners</h1>
+            <LoginForm
+              errors={errors}
+              user={user}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          </>
+        </div>
+      </div>
     </div>
   );
 };

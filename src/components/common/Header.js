@@ -1,21 +1,28 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { isAuthenticated, logout } from "../../helper/LoginHelper";
 
 function Header() {
-  const activeStyle = { color: "orange" };
   return (
     <nav>
-      <NavLink activeStyle={activeStyle} exact to="/">
-        Login
-      </NavLink>
-      |{" "}
-      <NavLink activeStyle={activeStyle} to="/users">
-        Users
-      </NavLink>
-      |{" "}
-      <NavLink activeStyle={activeStyle} to="/about">
-        About
-      </NavLink>
+      <ul>
+        <li>
+          <Link to="/home">Home</Link>
+        </li>
+        <li>
+          <Link to="/users">Users</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        {isAuthenticated() && (
+          <li>
+            <Link to="/" onClick={logout}>
+              Log Out
+            </Link>
+          </li>
+        )}
+      </ul>
     </nav>
   );
 }

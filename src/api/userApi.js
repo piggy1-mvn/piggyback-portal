@@ -12,12 +12,7 @@ export function getUsers() {
 
 export function getUserById(user_id) {
   return fetch(baseUrlHateOas + user_id)
-    .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok.");
-      return response.json().then(user => {
-        return user;
-      });
-    })
+    .then(handleResponse)
     .catch(handleError);
 }
 
@@ -31,13 +26,20 @@ export function saveUser(user) {
     .catch(handleError);
 }
 
-export function loginUser(user) {
-  return fetch(baseUrl + "login", {
+export function loginUser(email, user_password) {
+  if (email === "" || user_password === "") return;
+  const requestOptions = {
     method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify(user)
-  }).then(response => {
-    if (!response.ok) throw new Error("Network response was not ok.");
-    return response;
-  });
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, user_password })
+  };
+
+  return fetch(baseUrl + "login", requestOptions)
+    .then(handleResponse)
+    .then(user => {
+      user.authdata = window.btoa(email + ":" + user_password);
+      localStorage.setItem("user", JSON.stringify(user));
+      return user;
+    })
+    .catch(handleError);
 }
