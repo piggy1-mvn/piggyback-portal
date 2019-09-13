@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { isAuthenticated, logout } from "../../api/userApi";
+import { isAuthenticated, logout } from "../../helper/LoginHelper";
 
 function Header() {
   return (

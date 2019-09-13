@@ -43,16 +43,3 @@ export function loginUser(email, user_password) {
     })
     .catch(handleError);
 }
-
-//move to helper
-export function isAuthenticated() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (user) {
-    return true;
-  } else return false;
-}
-
-//move to helper
-export function logout() {
-  localStorage.removeItem("user");
-}
