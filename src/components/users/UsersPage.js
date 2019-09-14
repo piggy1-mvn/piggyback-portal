@@ -8,7 +8,7 @@ function UsersPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getUsers().then(_users => setUsers(_users._embedded.users));
+    getUsers().then(_users => setUsers(_users));
   }, []);
 
   return (

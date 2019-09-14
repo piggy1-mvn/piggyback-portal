@@ -16,6 +16,12 @@ const LoginPage = props => {
     if (user_id) {
       userApi.getUserById(user_id).then(_user => setUser(_user));
     }
+
+    if (localStorage.getItem("user")) localStorage.removeItem("user");
+    if (localStorage.getItem("userRole")) localStorage.removeItem("userRole");
+    if (localStorage.getItem("token")) localStorage.removeItem("token");
+    if (localStorage.getItem("expires")) localStorage.removeItem("expires");
+
   }, [props.match.params.user_id]);
 
   function handleChange({ target }) {
@@ -44,7 +50,7 @@ const LoginPage = props => {
       .loginUser(user.email, user.user_password)
       .then(() => {
         props.history.push("/home");
-        toast.success("Welcome to Piggyback Partner Portal");
+        toast.success("Welcome to Piggyback Portal!");
       })
       .catch(handleError);
   }
