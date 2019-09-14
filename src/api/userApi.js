@@ -1,11 +1,13 @@
 import { handleResponse, handleError } from "./apiUtils";
 import * as config from "../config/config";
 import jwt from "jwt-decode";
+import { logout } from "../helper/LoginHelper";
 
 const baseUrl = config.baseUrlUserApi;
 
 export function getUsers() {
   if (!localStorage.getItem("token")) return;
+  refreshToken();
   const token = localStorage.getItem("token");
   return fetch(baseUrl, {
     method: "GET",
@@ -20,6 +22,7 @@ export function getUsers() {
 
 export function getUserById(user_id) {
   if (!localStorage.getItem("token")) return;
+  refreshToken();
   const token = localStorage.getItem("token");
   return fetch(baseUrl + user_id, {
     method: "GET",
@@ -34,6 +37,7 @@ export function getUserById(user_id) {
 
 export function saveUser(user) {
   if (!localStorage.getItem("token")) return;
+  refreshToken();
   const token = localStorage.getItem("token");
   if (!user.id) {
     return fetch(baseUrl + "create", {
@@ -72,10 +76,24 @@ export function loginUser(email, user_password) {
     .then(token => {
       const decoded = jwt(token.jwttoken);
       localStorage.setItem("user", JSON.stringify(decoded.sub));
+      localStorage.setItem("password", JSON.stringify(user_password));
       localStorage.setItem("userRole", JSON.stringify(decoded.user_role));
       localStorage.setItem("token", JSON.stringify(token.jwttoken));
       localStorage.setItem("expires", JSON.stringify(decoded.exp));
       return token;
     })
     .catch(handleError);
+}
+
+function refreshToken() {
+  if (!localStorage.getItem("expires") || !localStorage.getItem("user") || !localStorage.getItem("password")) return;
+  const expires = JSON.parse(localStorage.getItem("expires"));
+  const seconds = new Date().getTime() / 1000;
+  if (seconds - expires < config.extendUserSessionMinutes * 60) {
+    loginUser(JSON.parse(localStorage.getItem("user")), JSON.parse(localStorage.getItem("password")));
+  }
+  else {
+    logout();
+    window.location.replace("/");
+  }
 }

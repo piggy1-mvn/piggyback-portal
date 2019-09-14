@@ -23,7 +23,7 @@ function Header() {
           <Link to="/" onClick={logout}>Log Out</Link>
         </li>
       </ul>
-    </nav >
+    </nav>
   );
 }
 
