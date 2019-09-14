@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserForm from "./ManageUserForm";
+import Header from "../common/Header";
 import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
@@ -56,15 +57,18 @@ const ManageUsers = props => {
   }
 
   return (
-    <>
-      <h2>Manage User</h2>
-      <UserForm
-        errors={errors}
-        user={user}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-      />
-    </>
+    <div className="container-fluid">
+      <Header />
+      <div className="body">
+        <h2>Manage User</h2>
+        <UserForm
+          errors={errors}
+          user={user}
+          onChange={handleChange}
+          onSubmit={handleSubmit}
+        />
+      </div>
+    </div>
   );
 };
 

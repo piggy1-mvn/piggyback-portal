@@ -8,3 +8,7 @@ To get started locally:
 
 1. npm install
 2. npm start
+
+External Dependencies:
+
+1. Piggyback User Service
