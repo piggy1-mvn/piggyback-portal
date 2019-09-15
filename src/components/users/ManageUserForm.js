@@ -1,8 +1,9 @@
 import React from "react";
 import TextInput from "../common/TextInput";
 import PropTypes from "prop-types";
+import DropDown from "../common/DropDown";
 
-function UserForm(props) {
+function ManageUserForm(props) {
   return (
     <form onSubmit={props.onSubmit}>
       <TextInput
@@ -50,12 +51,11 @@ function UserForm(props) {
         value={props.user.device_id}
         error={props.errors.device_id}
       />
-      <TextInput
+      <DropDown
         id="user_role"
-        type="text"
+        name="user_role"
         label="Role"
         onChange={props.onChange}
-        name="user_role"
         value={props.user.user_role}
         error={props.errors.user_role}
       />
@@ -65,11 +65,11 @@ function UserForm(props) {
   );
 }
 
-UserForm.propTypes = {
+ManageUserForm.propTypes = {
   user: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
 
-export default UserForm;
+export default ManageUserForm;

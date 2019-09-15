@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import UserForm from "./ManageUserForm";
+import ManageUserForm from "./ManageUserForm";
 import Header from "../common/Header";
 import * as userApi from "../../api/userApi";
 import { toast } from "react-toastify";
 
-const ManageUsers = props => {
+const ManageUsersPage = props => {
   const [errors, setErrors] = useState({});
 
   const [user, setUser] = useState({
@@ -61,7 +61,7 @@ const ManageUsers = props => {
       <Header />
       <div className="body">
         <h2>Manage User</h2>
-        <UserForm
+        <ManageUserForm
           errors={errors}
           user={user}
           onChange={handleChange}
@@ -72,4 +72,4 @@ const ManageUsers = props => {
   );
 };
 
-export default ManageUsers;
+export default ManageUsersPage;

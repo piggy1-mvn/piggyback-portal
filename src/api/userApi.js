@@ -1,7 +1,7 @@
 import { handleResponse, handleError } from "./apiUtils";
 import * as config from "../config/config";
 import jwt from "jwt-decode";
-import { logout } from "../helper/LoginHelper";
+import { refreshToken } from "../helper/LoginHelper";
 
 const baseUrl = config.baseUrlUserApi;
 
@@ -29,6 +29,20 @@ export function getUserById(user_id) {
     headers: {
       "content-type": "application/json",
       "Authorization": "Bearer " + token.slice(1, token.length - 1)
+    }
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export default function getUserRoles() {
+  if (!localStorage.getItem("token")) return;
+  const token = JSON.parse(localStorage.getItem("token"));
+  return fetch(baseUrl + "roles", {
+    method: "GET",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -83,17 +97,4 @@ export function loginUser(email, user_password) {
       return token;
     })
     .catch(handleError);
-}
-
-function refreshToken() {
-  if (!localStorage.getItem("expires") || !localStorage.getItem("user") || !localStorage.getItem("password")) return;
-  const expires = JSON.parse(localStorage.getItem("expires"));
-  const seconds = new Date().getTime() / 1000;
-  if (seconds - expires < config.extendUserSessionMinutes * 60) {
-    loginUser(JSON.parse(localStorage.getItem("user")), JSON.parse(localStorage.getItem("password")));
-  }
-  else {
-    logout();
-    window.location.replace("/");
-  }
 }
