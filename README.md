@@ -12,3 +12,4 @@ To get started locally:
 External Dependencies:
 
 1. Piggyback User Service
+2. Piggyback Partner Service
