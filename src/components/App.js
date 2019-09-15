@@ -1,7 +1,7 @@
 import React from "react";
 import { PrivateRoute } from "./common/PrivateRoute";
 import LoginPage from "./login/LoginPage";
-import AboutPage from "./about/AboutPage";
+import PartnersPage from "./partners/PartnersPage";
 import UsersPage from "./users/UsersPage";
 import { Route, Switch, Redirect } from "react-router-dom";
 import FileNotFoundPage from "./NotFoundPage";
@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import * as config from "../config/config";
 import HomePage from "./home/HomePage";
 import CreateUsersPage from "./users/CreateUsersPage";
+import ManagePartnersPage from "./partners/ManagePartnersPage";
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <PrivateRoute path="/users" component={UsersPage} />
           <PrivateRoute path="/user/add" exact component={CreateUsersPage} />
           <PrivateRoute path="/user/:user_id" component={ManageUsersPage} />
-          <PrivateRoute path="/about" component={AboutPage} />
+          <PrivateRoute path="/partners" component={PartnersPage} />
+          <PrivateRoute path="/partner/:partner_id" component={ManagePartnersPage} />
           <Route component={FileNotFoundPage} />
         </Switch>
       </div>

@@ -17,7 +17,7 @@ function Header() {
           <Link to="/users">Users</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/partners">Partners</Link>
         </li>
         <li style={rightStyle}>
           <Link to="/" onClick={logout}>Log Out</Link>

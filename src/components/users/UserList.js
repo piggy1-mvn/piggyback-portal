@@ -13,7 +13,7 @@ function UserList(props) {
         </tr>
       </thead>
       <tbody>
-        {props.users.length > 0 &&
+        {props.users && props.users.length > 0 &&
           props.users.map(user => {
             return (
               <tr key={user.id}>
