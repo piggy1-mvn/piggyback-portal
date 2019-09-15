@@ -16,7 +16,7 @@ function UsersPage() {
       <Header />
       <div className="body">
         <h2>Users</h2>
-        <Link className="btn btn-primary" style={{ margin: "5px" }} to="/user">
+        <Link className="btn btn-primary" style={{ margin: "5px" }} to="/user/add">
           Add User
         </Link>
         <UserList users={users} />

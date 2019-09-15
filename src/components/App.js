@@ -1,15 +1,16 @@
 import React from "react";
 import { PrivateRoute } from "./common/PrivateRoute";
-import Login from "./login/LoginPage";
-import About from "./about/AboutPage";
-import Users from "./users/UsersPage";
+import LoginPage from "./login/LoginPage";
+import AboutPage from "./about/AboutPage";
+import UsersPage from "./users/UsersPage";
 import { Route, Switch, Redirect } from "react-router-dom";
-import FileNotFound from "./NotFoundPage";
-import ManageUsers from "./users/ManageUsersPage";
+import FileNotFoundPage from "./NotFoundPage";
+import ManageUsersPage from "./users/ManageUsersPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as config from "../config/config";
 import HomePage from "./home/HomePage";
+import CreateUsersPage from "./users/CreateUsersPage";
 
 function App() {
   return (
@@ -17,14 +18,14 @@ function App() {
       <ToastContainer autoClose={config.toastDuration} hideProgressBar />
       <div className="body">
         <Switch>
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact component={LoginPage} />
           <Redirect path="/login" to="/" />
           <PrivateRoute path="/home" component={HomePage} />
-          <PrivateRoute path="/users" component={Users} />
-          <PrivateRoute path="/user/:user_id" component={ManageUsers} />
-          <PrivateRoute path="/user" component={ManageUsers} />
-          <PrivateRoute path="/about" component={About} />
-          <Route component={FileNotFound} />
+          <PrivateRoute path="/users" component={UsersPage} />
+          <PrivateRoute path="/user/add" exact component={CreateUsersPage} />
+          <PrivateRoute path="/user/:user_id" component={ManageUsersPage} />
+          <PrivateRoute path="/about" component={AboutPage} />
+          <Route component={FileNotFoundPage} />
         </Switch>
       </div>
     </div>
