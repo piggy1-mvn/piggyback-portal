@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 export async function handleResponse(response) {
   if (response.ok) {
     return response.json();
+  } else {
+    console.log(response);
   }
-  handleError(await response.text());
 }
 
 export function handleError(error) {
