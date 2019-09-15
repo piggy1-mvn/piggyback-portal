@@ -8,12 +8,12 @@ const baseUrl = config.baseUrlUserApi;
 export function getUsers() {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = localStorage.getItem("token");
+  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl, {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "Authorization": "Bearer " + token.slice(1, token.length - 1)
+      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -23,12 +23,12 @@ export function getUsers() {
 export function getUserById(user_id) {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = localStorage.getItem("token");
+  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl + user_id, {
     method: "GET",
     headers: {
       "content-type": "application/json",
-      "Authorization": "Bearer " + token.slice(1, token.length - 1)
+      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -52,7 +52,7 @@ export default function getUserRoles() {
 export function saveUser(user) {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = localStorage.getItem("token");
+  const token = JSON.parse(localStorage.getItem("token"));
   if (!user.id) {
     return fetch(baseUrl + "create", {
       method: "POST",
@@ -68,7 +68,7 @@ export function saveUser(user) {
       method: "PUT",
       headers: {
         "content-type": "application/json",
-        "Authorization": "Bearer " + token.slice(1, token.length - 1)
+        "Authorization": "Bearer " + token
       },
       body: JSON.stringify(user)
     })
