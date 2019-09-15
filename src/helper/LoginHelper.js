@@ -12,7 +12,7 @@ export function logout() {
   localStorage.clear();
 }
 
-export default function refreshToken() {
+export function refreshToken() {
   if (!localStorage.getItem("expires") || !localStorage.getItem("user") || !localStorage.getItem("password")) return;
   const expires = JSON.parse(localStorage.getItem("expires"));
   const seconds = new Date().getTime() / 1000;
