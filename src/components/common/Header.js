@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { isAuthenticated, logout } from "../../helper/LoginHelper";
+import { logout } from "../../helper/LoginHelper";
+
+const rightStyle = {
+  float: 'right'
+}
 
 function Header() {
   return (
@@ -15,13 +19,9 @@ function Header() {
         <li>
           <Link to="/about">About</Link>
         </li>
-        {isAuthenticated() && (
-          <li>
-            <Link to="/" onClick={logout}>
-              Log Out
-            </Link>
-          </li>
-        )}
+        <li style={rightStyle}>
+          <Link to="/" onClick={logout}>Log Out</Link>
+        </li>
       </ul>
     </nav>
   );

@@ -6,8 +6,5 @@ export function isAuthenticated() {
 }
 
 export function logout() {
-  localStorage.removeItem("user");
-  localStorage.removeItem("userRole");
-  localStorage.removeItem("token");
-  localStorage.removeItem("expires")
+  localStorage.clear();
 }
