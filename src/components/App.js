@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as config from "../config/config";
 import HomePage from "./home/HomePage";
-import CreateUserPage from "./users/CreateUserPage";
+import CreateUsersPage from "./users/CreateUsersPage";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Redirect path="/login" to="/" />
           <PrivateRoute path="/home" component={HomePage} />
           <PrivateRoute path="/users" component={UsersPage} />
-          <PrivateRoute path="/user/add" exact component={CreateUserPage} />
+          <PrivateRoute path="/user/add" exact component={CreateUsersPage} />
           <PrivateRoute path="/user/:user_id" component={ManageUsersPage} />
           <PrivateRoute path="/about" component={AboutPage} />
           <Route component={FileNotFoundPage} />
