@@ -19,6 +19,9 @@ function Header() {
         <li>
           <Link to="/partners">Partners</Link>
         </li>
+        <li>
+          <Link to="/orders">Orders</Link>
+        </li>
         <li style={rightStyle}>
           <Link to="/" onClick={logout}>Log Out</Link>
         </li>

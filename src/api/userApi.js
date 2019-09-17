@@ -1,9 +1,9 @@
 import { handleResponse, handleError } from "./apiUtils";
-import * as config from "../config/config";
+import { baseUrlUserApi, partnerUserRoles } from "../config/config";
 import jwt from "jwt-decode";
 import { refreshToken } from "../helper/LoginHelper";
 
-const baseUrl = config.baseUrlUserApi;
+const baseUrl = baseUrlUserApi;
 
 export function getUsers() {
   if (!localStorage.getItem("token")) return;
@@ -96,5 +96,21 @@ export function loginUser(email, user_password) {
       localStorage.setItem("expires", JSON.stringify(decoded.exp));
       return token;
     })
+    .catch(handleError);
+}
+
+export function getUsersInRoles() {
+  if (!localStorage.getItem("token")) return;
+  refreshToken();
+  const token = JSON.parse(localStorage.getItem("token"));
+  return fetch(baseUrl + "role", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "Authorization": "Bearer " + token
+    },
+    body: JSON.stringify({ user_roles: partnerUserRoles })
+  })
+    .then(handleResponse)
     .catch(handleError);
 }
