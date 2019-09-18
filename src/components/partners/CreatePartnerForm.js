@@ -1,9 +1,8 @@
 import React from "react";
 import TextInput from "../common/TextInput";
 import PropTypes from "prop-types";
-import MultiDropDown from "../common/MultiDropDown";
 
-function ManagePartnerForm(props) {
+function CreatePartnerForm(props) {
     return (
         <form onSubmit={props.onSubmit}>
             <TextInput
@@ -51,27 +50,18 @@ function ManagePartnerForm(props) {
                 value={props.partner.partnerMobile}
                 error={props.errors.partnerMobile}
             />
-            <MultiDropDown
-                id="userIds"
-                name="userIds"
-                label="Users"
-                onChange={props.onChangeSelector}
-                values={props.partner.userIds}
-                error={props.errors.userIds}
-                options={props.partnerUsers}
-            />
+
             <input type="submit" value="Save" className="btn btn-primary" />
         </form>
     );
 }
 
-ManagePartnerForm.propTypes = {
+CreatePartnerForm.propTypes = {
     partner: PropTypes.object.isRequired,
     partnerUsers: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
-    onChangeSelector: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired
 };
 
-export default ManagePartnerForm;
+export default CreatePartnerForm;

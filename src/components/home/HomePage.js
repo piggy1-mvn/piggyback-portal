@@ -7,9 +7,7 @@ const HomePage = props => {
   useEffect(() => {
     getUserRoles()
       .then(roles => {
-        if (roles) {
-          localStorage.setItem("roles", JSON.stringify(roles));
-        }
+        localStorage.setItem("roles", JSON.stringify(roles));
       })
   }, []);
 

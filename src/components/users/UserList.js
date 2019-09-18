@@ -9,6 +9,7 @@ function UserList(props) {
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Role</th>
           <th>Email</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@ function UserList(props) {
               <tr key={user.id}>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
+                <td>{user.user_role}</td>
                 <td>
                   <Link to={"/user/" + user.id}>{user.email}</Link>
                 </td>
