@@ -19,7 +19,7 @@ function PartnersPage() {
         <Link className="btn btn-primary" style={{ margin: "5px" }} to="/partner/add">
           Add Partner
          </Link>
-        <PartnerList partners={partners.data} />
+        <PartnerList partners={partners} />
       </div>
     </div>
   );
