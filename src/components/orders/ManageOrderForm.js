@@ -24,6 +24,15 @@ function ManageOrderForm(props) {
                 error={props.errors.orderType}
             />
             <TextInput
+                id="partnerRedirectUrl"
+                type="text"
+                label="Redirect URL"
+                onChange={props.onChange}
+                name="partnerRedirectUrl"
+                value={props.order.partnerRedirectUrl}
+                error={props.errors.partnerRedirectUrl}
+            />
+            <TextInput
                 id="orderStatus"
                 type="text"
                 label="Order Status"

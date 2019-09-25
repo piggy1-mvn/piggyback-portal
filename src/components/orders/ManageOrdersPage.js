@@ -54,6 +54,7 @@ const ManageOrdersPage = props => {
 
         if (!order.partnerId) _errors.partnerId = "Partner ID is required";
         if (!order.orderType) _errors.orderType = "Order Type is required";
+        if (!order.partnerRedirectUrl) _errors.partnerRedirectUrl = "Redirect URL is required";
         if (!order.orderStatus) _errors.orderStatus = "Order Status is required";
         if (!order.optimizationDuration) _errors.optimizationDuration = "Optimization Duration is required.";
         if (!order.orderLocation.longitude) _errors.orderLocationLongitude = "Longitude is required";
