@@ -10,6 +10,7 @@ const ManageOrdersPage = props => {
     const [order, setOrder] = useState({
         partnerId: "",
         orderType: "",
+        partnerRedirectUrl: "",
         orderStatus: "",
         optimizationDuration: "",
         orderLocation: {
