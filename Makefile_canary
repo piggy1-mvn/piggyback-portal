@@ -4,7 +4,7 @@ K8s_CLUSTER:=piggy-prod-jenkins
 ZONE:=asia-southeast1-a
 
 IMAGE_NAME:=gcr.io/absolute-text-251105/piggy1-portal
-IMAGE_VERSION:=v1
+IMAGE_VERSION:=v2
 
 gauth:
 	@gcloud auth activate-service-account --key-file ${KEY_FILE}
@@ -14,7 +14,7 @@ gconfig:
 	@gcloud container clusters get-credentials $(K8s_CLUSTER) --zone $(ZONE) --project $(PROJECT_ID)
 	@gcloud auth configure-docker
 
-build:
+builder:
 	@docker build -t $(IMAGE_NAME):$(IMAGE_VERSION) .
 	
 push:
