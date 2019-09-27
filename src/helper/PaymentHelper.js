@@ -51,40 +51,34 @@ export function paymentProcessor(cardNumber, expiryDate, cardCode, amount) {
 
         console.log(JSON.stringify(response, null, 2));
 
-        if (response != null) {
-            if (response.getMessages().getResultCode() === ApiContracts.MessageTypeEnum.OK) {
-                if (response.getTransactionResponse().getMessages() != null) {
-                    console.log('Successfully created transaction with Transaction ID: ' + response.getTransactionResponse().getTransId());
-                    console.log('Response Code: ' + response.getTransactionResponse().getResponseCode());
-                    console.log('Message Code: ' + response.getTransactionResponse().getMessages().getMessage()[0].getCode());
-                    console.log('Description: ' + response.getTransactionResponse().getMessages().getMessage()[0].getDescription());
-                    return true;
-                }
-                else {
-                    console.log('Failed Transaction.');
-                    if (response.getTransactionResponse().getErrors() != null) {
-                        console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
-                        console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
-                    }
-                    return false;
-                }
+        if (response.getMessages().getResultCode() === ApiContracts.MessageTypeEnum.OK) {
+            if (response.getTransactionResponse().getMessages() != null) {
+                console.log('Successfully created transaction with Transaction ID: ' + response.getTransactionResponse().getTransId());
+                console.log('Response Code: ' + response.getTransactionResponse().getResponseCode());
+                console.log('Message Code: ' + response.getTransactionResponse().getMessages().getMessage()[0].getCode());
+                console.log('Description: ' + response.getTransactionResponse().getMessages().getMessage()[0].getDescription());
+                return true;
             }
             else {
-                console.log('Failed Transaction. ');
-                if (response.getTransactionResponse() != null && response.getTransactionResponse().getErrors() != null) {
-
+                console.log('Failed Transaction.');
+                if (response.getTransactionResponse().getErrors() != null) {
                     console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
                     console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
-                }
-                else {
-                    console.log('Error Code: ' + response.getMessages().getMessage()[0].getCode());
-                    console.log('Error message: ' + response.getMessages().getMessage()[0].getText());
                 }
                 return false;
             }
         }
         else {
-            console.log('Null Response.');
+            console.log('Failed Transaction. ');
+            if (response.getTransactionResponse() != null && response.getTransactionResponse().getErrors() != null) {
+
+                console.log('Error Code: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorCode());
+                console.log('Error message: ' + response.getTransactionResponse().getErrors().getError()[0].getErrorText());
+            }
+            else {
+                console.log('Error Code: ' + response.getMessages().getMessage()[0].getCode());
+                console.log('Error message: ' + response.getMessages().getMessage()[0].getText());
+            }
             return false;
         }
     });
