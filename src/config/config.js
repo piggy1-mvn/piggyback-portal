@@ -1,6 +1,8 @@
 export const toastDuration = 3000;
 export const extendUserSessionMinutes = 10;
 export const partnerUserRoles = ["PARTNER_ADMIN", "PARTNER_USER", "PARTNER_API_USER"];
+export const authNetApiKey = "7S8fsuXU2zJ8";
+export const authNetApiPass = "855NG4q7W6x5fbuH";
 
 const environmentVariable = process.env.REACT_APP_ENV;
 
