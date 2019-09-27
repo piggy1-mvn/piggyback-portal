@@ -1,0 +1,24 @@
+import React, { useState, useEffect } from "react";
+import Header from "../common/Header";
+import { getAllInvoice } from "../../api/invoiceApi";
+import InvoiceList from "./InvoiceList";
+
+function InvoicePage() {
+    const [invoice, setInvoice] = useState([]);
+
+    useEffect(() => {
+        getAllInvoice().then(_invoice => setInvoice(_invoice));
+    }, []);
+
+    return (
+        <div className="container-fluid">
+            <Header />
+            <div className="body">
+                <h2>Invoices</h2>
+                <InvoiceList invoice={invoice} />
+            </div>
+        </div>
+    );
+}
+
+export default InvoicePage;

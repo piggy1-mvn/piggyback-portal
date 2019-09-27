@@ -22,6 +22,9 @@ function Header() {
         <li>
           <Link to="/orders">Orders</Link>
         </li>
+        <li>
+          <Link to="/invoice">Invoices</Link>
+        </li>
         <li style={rightStyle}>
           <Link to="/" onClick={logout}>Log Out</Link>
         </li>

@@ -15,6 +15,7 @@ import CreatePartnersPage from "./partners/CreatePartnersPage";
 import ManagePartnersPage from "./partners/ManagePartnersPage";
 import OrdersPage from "./orders/OrdersPage";
 import ManageOrdersPage from "./orders/ManageOrdersPage";
+import InvoicePage from "./invoice/InvoicePage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <PrivateRoute path="/orders" component={OrdersPage} />
           <PrivateRoute path="/order/add" exact component={ManageOrdersPage} />
           <PrivateRoute path="/order/:order_id" component={ManageOrdersPage} />
+          <PrivateRoute path="/invoice" component={InvoicePage} />
           <Route component={FileNotFoundPage} />
         </Switch>
       </div>
