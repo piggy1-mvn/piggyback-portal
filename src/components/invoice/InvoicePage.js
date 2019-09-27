@@ -4,7 +4,14 @@ import { getAllInvoice } from "../../api/invoiceApi";
 import InvoiceList from "./InvoiceList";
 
 function InvoicePage() {
-    const [invoice, setInvoice] = useState([]);
+    const [invoice, setInvoice] = useState({
+        amount: "",
+        due_Date: "",
+        invoice_id: 0,
+        lineItem: "",
+        partnerId: "",
+        status: ""
+    });
 
     useEffect(() => {
         getAllInvoice().then(_invoice => setInvoice(_invoice));
