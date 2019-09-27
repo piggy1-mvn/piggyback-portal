@@ -1,8 +1,8 @@
-import * as config from "../config/config";
+import { baseUrlPartnerApi } from "../config/config";
 import { refreshToken } from "../helper/LoginHelper";
 import { handleResponse, handleError } from "../api/apiUtils";
 
-const baseUrl = config.baseUrlPartnerApi;
+const baseUrl = baseUrlPartnerApi;
 
 export function getPartners() {
     if (!localStorage.getItem("token")) return;

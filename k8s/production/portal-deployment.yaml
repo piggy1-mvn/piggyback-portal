@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: piggyback-portal-production
+  namespace: production
+spec:
+  replicas: 2
+  progressDeadlineSeconds: 10
+  template:
+    metadata:
+      labels:
+        app: piggyback-portal
+        env: production
+    spec:
+      containers:
+      - image: gcr.io/absolute-text-251105/piggy1-portal:v2
+        name: piggyback-prod-runner-portal
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        imagePullPolicy: Always
+        ports:
+        - name: piggy-portal
+          containerPort: 5000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+status: {}
