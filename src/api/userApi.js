@@ -8,12 +8,12 @@ const baseUrl = baseUrlUserApi;
 export function getUsers() {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = JSON.parse(localStorage.getItem("token"));
+  //  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl, {
     method: "GET",
     headers: {
-      "content-type": "application/json",
-      "Authorization": "Bearer " + token
+      "content-type": "application/json"//,
+      //      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -23,12 +23,12 @@ export function getUsers() {
 export function getUserById(user_id) {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = JSON.parse(localStorage.getItem("token"));
+  //  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl + user_id, {
     method: "GET",
     headers: {
-      "content-type": "application/json",
-      "Authorization": "Bearer " + token
+      "content-type": "application/json"//,
+      //      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -37,12 +37,12 @@ export function getUserById(user_id) {
 
 export default function getUserRoles() {
   if (!localStorage.getItem("token")) return;
-  const token = JSON.parse(localStorage.getItem("token"));
+  //  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl + "roles", {
     method: "GET",
     headers: {
-      "content-type": "application/json",
-      "Authorization": "Bearer " + token
+      "content-type": "application/json"//,
+      //      "Authorization": "Bearer " + token
     }
   })
     .then(handleResponse)
@@ -52,7 +52,7 @@ export default function getUserRoles() {
 export function saveUser(user) {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = JSON.parse(localStorage.getItem("token"));
+  //const token = JSON.parse(localStorage.getItem("token"));
   if (!user.id) {
     return fetch(baseUrl + "create", {
       method: "POST",
@@ -67,8 +67,8 @@ export function saveUser(user) {
     return fetch(baseUrl + user.id, {
       method: "PUT",
       headers: {
-        "content-type": "application/json",
-        "Authorization": "Bearer " + token
+        "content-type": "application/json"//,
+        //        "Authorization": "Bearer " + token
       },
       body: JSON.stringify(user)
     })
@@ -102,12 +102,12 @@ export function loginUser(email, user_password) {
 export function getUsersInRoles() {
   if (!localStorage.getItem("token")) return;
   refreshToken();
-  const token = JSON.parse(localStorage.getItem("token"));
+  //  const token = JSON.parse(localStorage.getItem("token"));
   return fetch(baseUrl + "role", {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "Authorization": "Bearer " + token
+      //      "Authorization": "Bearer " + token
     },
     body: JSON.stringify({ user_roles: partnerUserRoles })
   })
