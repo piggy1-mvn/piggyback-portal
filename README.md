@@ -7,7 +7,7 @@
 To get started locally:
 
 1. npm install
-2. npm start
+2. ($env:REACT_APP_ENV = "dev") -and (npm run-scripts build)
 
 External Dependencies:
 
