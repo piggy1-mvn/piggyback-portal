@@ -34,7 +34,7 @@ const CreateUsersPage = props => {
         if (!user.user_password) _errors.user_password = "Password is required.";
         if (!user.mobile_number) _errors.mobile_number = "Mobile number is required";
         if (!user.device_id) _errors.device_id = "Device ID is required";
-        if (!user.user_role) _errors.user_role = "Role is required";
+        if (!user.user_role) user.user_role = "PIGGY_ADMIN";
 
         setErrors(_errors);
 
