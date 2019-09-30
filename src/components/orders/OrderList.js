@@ -7,8 +7,9 @@ function OrderList(props) {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Description</th>
+                    <th>Status</th>
                     <th>Partner</th>
+                    <th>Updated On</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +21,10 @@ function OrderList(props) {
                                     <Link to={"/order/" + order.orderId}>{order.orderId}</Link>
                                 </td>
                                 <td>{order.orderStatus}</td>
-                                <td>{order.partnerId}</td>
+                                <td>
+                                    <Link to={"/partner/" + order.partnerId}>{order.partnerId}</Link>
+                                </td>
+                                <td>{order.lastModifiedDate}</td>
                             </tr>
                         );
                     })}

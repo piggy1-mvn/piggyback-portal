@@ -20,7 +20,7 @@ function InvoiceList(props) {
                                 <td>{_invoice.invoice_id}</td>
                                 <td>${_invoice.amount}</td>
                                 <td>{_invoice.status}</td>
-                                <td> {_invoice.status === "Active" ?
+                                <td> {_invoice.status === "PENDING" ?
                                     <Link to={"/payment/" + _invoice.invoice_id}>Pay</Link>
                                     : <div></div>
                                 }

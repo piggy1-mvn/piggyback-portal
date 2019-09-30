@@ -13,7 +13,7 @@ spec:
         env: canary
     spec:
       containers:
-      - image: gcr.io/absolute-text-251105/piggy1-portal:v3
+      - image: gcr.io/absolute-text-251105/piggy1-portal:v4
         name: piggyback-prod-runner-portal
         resources:
           limits:

@@ -50,7 +50,7 @@ const CreatePartnersPage = props => {
         <div className="container-fluid">
             <Header />
             <div className="body">
-                <h2>Manage Partner</h2>
+                <h2>Create Partner</h2>
                 <CreatePartnerForm
                     errors={errors}
                     partner={partner}
