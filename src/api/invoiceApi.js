@@ -7,15 +7,19 @@ const baseUrl = baseUrlInvoiceApi;
 export function getAllInvoice() {
     if (!localStorage.getItem("token")) return;
     refreshToken();
+    const token = JSON.parse(localStorage.getItem("token"));
     return fetch(baseUrl + "/", {
         method: "GET",
         headers: {
             "content-type": "application/json",
+            "Authorization": "Bearer " + token
         }
     })
         .then(handleResponse)
         .catch(handleError);
 }
+
+
 
 export function getInvoiceById(invoice_id) {
     if (!localStorage.getItem("token")) return;
