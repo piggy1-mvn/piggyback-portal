@@ -19,8 +19,6 @@ export function getAllInvoice() {
         .catch(handleError);
 }
 
-
-
 export function getInvoiceById(invoice_id) {
     if (!localStorage.getItem("token")) return;
     refreshToken();
