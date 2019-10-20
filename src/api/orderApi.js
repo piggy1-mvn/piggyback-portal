@@ -10,7 +10,7 @@ export function getOrders() {
     return fetch(baseUrl + "/", {
         method: "GET",
         headers: {
-            "content-type": "application/json",
+            "content-type": "application/json"
         }
     })
         .then(handleResponse)
@@ -47,6 +47,19 @@ export function getOrderById(order_id) {
     if (!localStorage.getItem("token")) return;
     refreshToken();
     return fetch(baseUrl + "?orderId=" + order_id, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
+    })
+        .then(handleResponse)
+        .catch(handleError);
+}
+
+export function getOrderByPartnerId(partner_id) {
+    if (!localStorage.getItem("token")) return;
+    refreshToken();
+    return fetch(baseUrl + "/partnerId"+ "?partnerId=" + partner_id, {
         method: "GET",
         headers: {
             "content-type": "application/json"

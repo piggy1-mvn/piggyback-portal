@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../common/Header";
-import { getInvoiceByPartnerId } from "../../api/invoiceApi";
+import { getAllInvoice } from "../../api/invoiceApi";
 import InvoiceList from "./InvoiceList";
 
-function InvoicePage() {
+function InvoicesPage() {
     const [invoice, setInvoice] = useState({
         amount: "",
         due_Date: "",
@@ -12,10 +12,9 @@ function InvoicePage() {
         partnerId: "",
         status: ""
     });
-    const partnerId = JSON.parse(localStorage.getItem("partnerId"));
 
     useEffect(() => {
-        getInvoiceByPartnerId(partnerId).then(_invoice => setInvoice(_invoice));
+        getAllInvoice().then(_invoice => setInvoice(_invoice));
     }, []);
 
     return (
@@ -29,4 +28,4 @@ function InvoicePage() {
     );
 }
 
-export default InvoicePage;
+export default InvoicesPage;

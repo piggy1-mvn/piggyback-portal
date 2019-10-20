@@ -19,8 +19,6 @@ export function getAllInvoice() {
         .catch(handleError);
 }
 
-
-
 export function getInvoiceById(invoice_id) {
     if (!localStorage.getItem("token")) return;
     refreshToken();
@@ -43,6 +41,19 @@ export function saveInvoice(invoice) {
             "content-type": "application/json"
         },
         body: JSON.stringify(invoice)
+    })
+        .then(handleResponse)
+        .catch(handleError);
+}
+
+export function getInvoiceByPartnerId(partner_id) {
+    if (!localStorage.getItem("token")) return;
+    refreshToken();
+    return fetch(baseUrl + "/partnerId"+ "?partnerId=" + partner_id, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
     })
         .then(handleResponse)
         .catch(handleError);
