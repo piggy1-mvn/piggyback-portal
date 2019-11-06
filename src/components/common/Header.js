@@ -1,36 +1,33 @@
+import AdminHeader from "./AdminHeader";
+import UserHeader from "./UserHeader";
 import React from "react";
-import { Link } from "react-router-dom";
-import { logout } from "../../helper/LoginHelper";
 
-const rightStyle = {
-  float: 'right'
+class Header extends React.Component {
+   
+   
+    render() {
+        const userRole = JSON.parse(localStorage.getItem("userRole"))
+        const PIGGY_ADMIN="PIGGY_ADMIN";
+        const PARTNER_ADMIN="PARTNER_ADMIN";
+
+        let pageRender;
+    
+        if (userRole === PIGGY_ADMIN || userRole === PARTNER_ADMIN) {
+          console.log("Inside Admin user");
+          pageRender =  <AdminHeader />;
+        } else {
+          pageRender =  <UserHeader />;
+          console.log("Inside normal user")
+        };
+        return (
+            <div className="container-fluid">
+             {pageRender}
+            </div>
+        );
+    
+       
+    }
+
+
 }
-
-function Header() {
-  return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
-        <li>
-          <Link to="/users">Users</Link>
-        </li>
-        <li>
-          <Link to="/partners">Partners</Link>
-        </li>
-        <li>
-          <Link to="/orders">Orders</Link>
-        </li>
-        <li>
-          <Link to="/invoice">Invoices</Link>
-        </li>
-        <li style={rightStyle}>
-          <Link to="/" onClick={logout}>Log Out</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-}
-
 export default Header;

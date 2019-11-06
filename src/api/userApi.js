@@ -94,6 +94,7 @@ export function loginUser(email, user_password) {
       localStorage.setItem("userRole", JSON.stringify(decoded.user_role));
       localStorage.setItem("token", JSON.stringify(token.jwttoken));
       localStorage.setItem("expires", JSON.stringify(decoded.exp));
+      localStorage.setItem("partnerId", JSON.stringify(decoded.user_partner_id));
       return token;
     })
     .catch(handleError);

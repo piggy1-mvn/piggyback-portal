@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PartnerList from "./PartnerList";
 
 function PartnersPage() {
+
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {

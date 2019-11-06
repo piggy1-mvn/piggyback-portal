@@ -20,22 +20,26 @@ export function getPartners() {
 export function savePartner(partner) {
     if (!localStorage.getItem("token")) return;
     refreshToken();
+    const token = JSON.parse(localStorage.getItem("token"));
     if (!partner.partnerId) {
-        return fetch(baseUrl + "/", {
+        console.log("token passed ", token)
+        return fetch(baseUrl + '/', {
             method: "POST",
             headers: {
-                "content-type": "application/json"
-            },
+                "Content-Type": "application/json",
+                'Authorization' : 'Bearer ' + token
+              },
             body: JSON.stringify(partner)
         })
-            .then(handleResponse)
+            .then(response => response.json())
             .catch(handleError);
     } else {
         return fetch(baseUrl + "?partnerId=" + partner.partnerId, {
             method: "PUT",
             headers: {
-                "content-type": "application/json"
-            },
+                "content-type": "application/json",
+                      "Authorization": "Bearer " + token
+              },
             body: JSON.stringify(partner)
         })
             .then(handleResponse)

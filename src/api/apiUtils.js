@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 export async function handleResponse(response) {
   if (response.ok && response.status === 200) {
     return response.json();
+   
   } else if (response.status === 400) {
     toast.warn("Resource may already exist");
   }
