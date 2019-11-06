@@ -7,10 +7,12 @@ const baseUrl = baseUrlInvoiceApi;
 export function getAllInvoice() {
     if (!localStorage.getItem("token")) return;
     refreshToken();
+    const token = JSON.parse(localStorage.getItem("token"));
     return fetch(baseUrl + "/", {
         method: "GET",
         headers: {
             "content-type": "application/json",
+            "Authorization": "Bearer " + token
         }
     })
         .then(handleResponse)
@@ -39,6 +41,19 @@ export function saveInvoice(invoice) {
             "content-type": "application/json"
         },
         body: JSON.stringify(invoice)
+    })
+        .then(handleResponse)
+        .catch(handleError);
+}
+
+export function getInvoiceByPartnerId(partner_id) {
+    if (!localStorage.getItem("token")) return;
+    refreshToken();
+    return fetch(baseUrl + "/partnerId"+ "?partnerId=" + partner_id, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
     })
         .then(handleResponse)
         .catch(handleError);

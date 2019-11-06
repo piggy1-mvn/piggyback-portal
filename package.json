@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.11.3",
     "authorizenet": "^1.0.7",
     "bootstrap": "^4.3.1",
     "eslint-utils": "^1.4.2",
@@ -18,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "http://localhost:3000"
   },
   "eslintConfig": {
     "extends": "react-app"

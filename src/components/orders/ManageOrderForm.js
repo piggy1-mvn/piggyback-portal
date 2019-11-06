@@ -9,7 +9,7 @@ function ManageOrderForm(props) {
                 id="partnerId"
                 type="text"
                 label="Partner ID"
-                onChange={props.onChange}
+                onChange={false}
                 name="partnerId"
                 value={props.order.partnerId}
                 error={props.errors.partnerId}
@@ -18,7 +18,7 @@ function ManageOrderForm(props) {
                 id="orderType"
                 type="text"
                 label="Order Type"
-                onChange={props.onChange}
+                onChange={false}
                 name="orderType"
                 value={props.order.orderType}
                 error={props.errors.orderType}
