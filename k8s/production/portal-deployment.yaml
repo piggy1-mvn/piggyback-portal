@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: piggyback-portal-production
-  namespace: production
 spec:
   replicas: 1
   progressDeadlineSeconds: 10
@@ -10,10 +9,9 @@ spec:
     metadata:
       labels:
         app: piggyback-portal
-        env: production
     spec:
       containers:
-      - image: gcr.io/omega-palace-254907/piggy1-portal:v7
+      - image: gcr.io/clear-variety-253514/piggy1-portal:v7
         name: piggyback-prod-runner-portal
         resources:
           limits:
