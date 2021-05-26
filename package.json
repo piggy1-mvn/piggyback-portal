@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "auth0-js": "^9.13.4",
+    "auth0-js": "^9.16.2",
     "authorizenet": "^1.0.7",
     "bootstrap": "^4.5.2",
     "eslint-utils": "^2.1.0",
